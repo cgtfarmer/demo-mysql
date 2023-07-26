@@ -1,0 +1,17 @@
+version: "3.9"
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME}
+
+services:
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: super
+    # Uncomment this if you want the DB to stop erasing data when bringing the stack down
+    # volumes:
+    #   - db:/var/lib/mysql

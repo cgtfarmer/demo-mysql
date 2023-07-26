@@ -1,0 +1,319 @@
+DROP DATABASE IF EXISTS mysqlProject
+
+CREATE DATABASE mysqlProject;
+
+USE mysqlProject;
+
+DROP TABLE IF EXISTS companies;
+
+CREATE TABLE companies (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  category VARCHAR(255)
+);
+
+INSERT INTO companies (name, category)
+VALUES ('Walmart', 'Grocery');
+
+INSERT INTO companies (name, category)
+VALUES ('BestBuy', 'Electronics');
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  firstName VARCHAR(255),
+  lastName VARCHAR(255),
+  age INT,
+  weight DECIMAL(5,2),
+  gender VARCHAR(1),
+  companyId INT,
+  FOREIGN KEY (companyId) REFERENCES companies(id)
+);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('John', 'Doe', 35, 183.7, 'M' 1);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('Jane', 'Doe', 33, 155.1, 'F', 1);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('Chad', 'Smith', 35, 185.3, 'M' 1);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('Karen', 'Smith', 33, 159.5, 'F', 1);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('Chad', 'Smith', 35, 165.3, 'M', 2);
+
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('A', 'A', 23, 122.7, 'M' 1);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('B', 'B', 26, 151.6, 'F', 1);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('C', 'C', 15, 133.2, 'M' 1);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('D', 'D', 9, 63.4, 'F', 1);
+
+
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('E', 'E', 55, 126.7, 'M' 2);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('F', 'F', 71, 164.5, 'F', 2);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('G', 'G', 62, 131.7, 'M' 2);
+
+INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
+VALUES ('H', 'H', 41, 139.4, 'F', 2);
+
+
+------------
+
+CREATE DATABASE mysqlProject;
+
+USE mysqlProject;
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  firstName VARCHAR(255),
+  lastName VARCHAR(255),
+  age INT,
+  weight DECIMAL(5,2),
+  companyId INT,
+  FOREIGN KEY (companyId) REFERENCES companies(id)
+);
+
+INSERT INTO users (firstName, lastName, age, weight, companyId)
+VALUES ('John', 'Doe', 35, 185.3, 1);
+
+INSERT INTO users (firstName, lastName, age, weight, companyId)
+VALUES ('Jane', 'Doe', 33, 155.3, 1);
+
+INSERT INTO users (firstName, lastName, age, weight, companyId)
+VALUES ('Chad', 'Smith', 35, 165.3, 2);
+
+
+-- -----------------------------------
+
+DROP TABLE IF EXISTS companies;
+
+CREATE TABLE companies (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  category VARCHAR(255)
+);
+
+
+INSERT INTO companies (name, category)
+VALUES ('Walmart', 'Grocery');
+
+INSERT INTO companies (name, category)
+VALUES ('BestBuy', 'Electronics');
+
+
+USE mysqlProject;
+
+SELECT *
+FROM companies;
+
+SELECT *
+FROM users;
+
+UPDATE users
+SET age = 99, weight = 999.99
+WHERE id = 2;
+
+DELETE FROM users
+WHERE id = 1;
+
+SELECT *
+FROM users
+WHERE firstName = 'John'
+  AND lastName = 'Doe';
+
+SELECT *
+FROM users
+WHERE firstName = 'John'
+  AND lastName = 'Smith';
+-- Show all Minors
+SELECT *
+FROM users
+WHERE age < 18;
+
+-- Show all Adults
+SELECT *
+FROM users
+WHERE age > 18
+  AND age < 65;
+
+-- Show all Seniors
+SELECT *
+FROM users
+WHERE age > 65
+-- Blah blah, healthy weight range is 150-200, find healthy people
+SELECT *
+FROM users
+WHERE weight >= 150
+  AND weight <= 200
+
+SELECT *
+FROM users
+WHERE name = 'John'
+  OR name = 'Chad'
+
+-- Show all Minors and Seniors
+SELECT *
+FROM users
+WHERE age < 18
+  OR age > 65
+-- Blah blah, healthy weight range is 150-200, find healthy people who are also Seniors
+SELECT *
+FROM users
+WHERE age > 65
+  AND (weight >= 150 AND weight <= 200)
+
+
+-- How many users have the first name "John"?
+
+-- Returns the records:
+SELECT *
+FROM users
+WHERE firstName = 'John';
+
+-- Returns just the count:
+SELECT count(*)
+FROM users
+WHERE firstName = 'John';
+
+SELECT *
+FROM companies;
+
+UPDATE users
+set age = 99, weight = 999.99
+WHERE id =2;
+
+DELETE FROM users
+WHERE id = 1;
+
+INSERT INTO companies (name, category)
+VALUES ('Tractor Supply', 'Farm');
+
+UPDATE companies
+SET category = 'Western'
+WHERE id = 3;
+
+SELECT *
+FROM users
+WHERE firstName = 'John'
+    AND lastName = 'Doe';
+
+INSERT INTO users (firstName, lastName, age, weight, companyId)
+VALUES ('John', 'Smith', 35, 185.3, 1);
+
+SELECT *
+FROM users
+WHERE firstName = 'John'
+    AND lastName = 'Smith';
+
+-- Show all minors
+SELECT *
+FROM users
+WHERE age < 18;
+
+UPDATE users
+set age = 12, weight = 60
+WHERE id =2;
+
+-- Show all adults
+SELECT *
+FROM users
+WHERE age > 18;
+
+UPDATE users
+set age = 78, weight = 180
+WHERE id =5;
+
+-- Show all seniors
+SELECT *
+FROM users
+WHERE age > 65;
+
+-- Show all heathly adults
+SELECT *
+FROM users
+WHERE age > 18
+    AND weight >= 150
+    AND weight <= 200;
+
+SELECT *
+FROM users
+WHERE firstName = 'John'
+    OR firstName = 'Chad';
+
+-- Select all healthy Seniors
+SELECT *
+FROM users
+WHERE age > 65
+    AND (weight >= 150 AND weight <= 200);
+
+SELECT count(*)
+FROM users
+WHERE firstName = 'John';
+
+SELECT count(*)
+FROM users;
+
+-- How many healthy adults?
+SELECT count(*)
+FROM users
+WHERE age > 18
+    AND (weight >= 150 AND weight <= 200);
+
+-- count users that work at Walmart
+SELECT count(*)
+FROM users
+WHERE companyID = '1';
+
+-- Ascending order
+Select *
+From users
+Order by firstName ASC;
+
+-- Descending
+Select *
+From users
+Order by firstName DESC;
+
+-- Find the heaviest homie
+Select *
+From users
+ORDER BY weight DESC
+LIMIT 1;
+
+-- Find the 3 youngest homies
+Select *
+From users
+ORDER BY age ASC
+LIMIT 3;
+
+SELECT *
+FROM companies
+JOIN users ON users.companyId = companies.id;
+
+SELECT users.firstName, users.lastName, companies.name
+FROM companies
+JOIN users ON users.companyId = companies.id
+ORDER BY companies.name ASC;
+
+select *
+from users
+where last_name like '%oe%';
