@@ -32,13 +32,13 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
-VALUES ('John', 'Doe', 35, 183.7, 'M' 1);
+VALUES ('John', 'Doe', 35, 183.7, 'M', 1);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
 VALUES ('Jane', 'Doe', 33, 155.1, 'F', 1);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
-VALUES ('Chad', 'Smith', 35, 185.3, 'M' 1);
+VALUES ('Chad', 'Smith', 35, 185.3, 'M', 1);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
 VALUES ('Karen', 'Smith', 33, 159.5, 'F', 1);
@@ -48,13 +48,13 @@ VALUES ('Chad', 'Smith', 35, 165.3, 'M', 2);
 
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
-VALUES ('A', 'A', 23, 122.7, 'M' 1);
+VALUES ('A', 'A', 23, 122.7, 'M', 1);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
 VALUES ('B', 'B', 26, 151.6, 'F', 1);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
-VALUES ('C', 'C', 15, 133.2, 'M' 1);
+VALUES ('C', 'C', 15, 133.2, 'M', 1);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
 VALUES ('D', 'D', 9, 63.4, 'F', 1);
@@ -62,13 +62,13 @@ VALUES ('D', 'D', 9, 63.4, 'F', 1);
 
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
-VALUES ('E', 'E', 55, 126.7, 'M' 2);
+VALUES ('E', 'E', 55, 126.7, 'M', 2);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
 VALUES ('F', 'F', 71, 164.5, 'F', 2);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
-VALUES ('G', 'G', 62, 131.7, 'M' 2);
+VALUES ('G', 'G', 62, 131.7, 'M', 2);
 
 INSERT INTO users (firstName, lastName, age, weight, gender, companyId)
 VALUES ('H', 'H', 41, 139.4, 'F', 2);
