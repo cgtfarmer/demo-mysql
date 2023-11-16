@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS mysqlProject
+DROP DATABASE IF EXISTS mysqlProject;
 
 CREATE DATABASE mysqlProject;
 
